@@ -55,13 +55,13 @@ namespace SG
             Vector3 rotation = Vector3.zero;
             rotation.y = lookAngle;
             Quaternion targetRotaion = Quaternion.Euler(rotation);
-            myTransform.rotation = Quaternion.Lerp(myTransform.rotation,targetRotaion,followSpeed);
+            myTransform.rotation = targetRotaion;
 
             rotation = Vector3.zero;
             rotation.x = pivotAngle;
 
             targetRotaion = Quaternion.Euler(rotation);
-            cameraPivotTransform.localRotation = Quaternion.Lerp(cameraPivotTransform.localRotation,targetRotaion,followSpeed);
+            cameraPivotTransform.localRotation = targetRotaion;
         }
         private void HandleCameraCollisions(float delta)
         {

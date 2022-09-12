@@ -6,32 +6,21 @@ namespace SG
 {
     public class InputHandler : MonoBehaviour
     {
-        public float horizontal;
+        public float horizontal;        
         public float vertical;
         public float moveAmount;
         public float mouseX;
         public float mouseY;
 
-        PlayerContols inputActions;
-        CameraHandler cameraHandler;
+        public bool b_Input;        //L_Shift
 
+        public bool rollFlag;
+        public bool sprintFlag;
+        public float rollInputTimer;
+     
+        PlayerContols inputActions;
         Vector2 movementInput;
         Vector2 cameraInput;
-
-        public void Awake()
-        {
-            cameraHandler = CameraHandler.singleton;
-        }
-
-        private void FixedUpdate()
-        {
-            float delta = Time.fixedDeltaTime;
-            if(cameraHandler !=null)
-            {
-                cameraHandler.FollowTarget(delta);
-                cameraHandler.HandleCameraRotation(delta, mouseX, mouseY);
-            }
-        }
 
         public void OnEnable()
         {
@@ -51,6 +40,7 @@ namespace SG
         public void TickInput(float delta)
         {
             MoveInput(delta);
+            HandleRollInput(delta);
         }
         private void MoveInput(float delta)
         {
@@ -59,6 +49,26 @@ namespace SG
             moveAmount = Mathf.Clamp01(Mathf.Abs(horizontal) + Mathf.Abs(vertical));
             mouseX = cameraInput.x;
             mouseY = cameraInput.y;
+        }
+
+        private void HandleRollInput(float delta)
+        {
+            b_Input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
+
+            if (b_Input)
+            {
+                rollInputTimer += delta;
+                sprintFlag = true;
+            }
+            else
+            {
+                if(rollInputTimer>0 && rollInputTimer < 0.5f)
+                {
+                    sprintFlag = false;
+                    rollFlag = true;
+                }
+                rollInputTimer = 0;
+            }
         }
     }
 }
