@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88cd03b40fdf1147975b286db856e05, type: 3}
+  m_Name: Sward
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  itemName: Sward
+  modelPrefab: {fileID: 131468, guid: f61def225eac3e247985f6679965a655, type: 3}
+  isUnarmed: 0
