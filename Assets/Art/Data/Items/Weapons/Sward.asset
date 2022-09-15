@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
   itemName: Sward
-  modelPrefab: {fileID: 131468, guid: f61def225eac3e247985f6679965a655, type: 3}
+  modelPrefab: {fileID: 1756987693984044171, guid: cfd7f29cac1978142ae30ea498344b9f,
+    type: 3}
   isUnarmed: 0
+  OH_Light_Attack_1: Right_light_Attak_1
+  OH_Heavy_Attack_1: Right_Heavy_Attack_1
